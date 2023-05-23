@@ -13,6 +13,7 @@ public struct CSV: Codable, Equatable, Sendable {
 }
 
 extension CSV {
+    @available(macOS 10.15.0, *)
     public func getRawValue(skipValidation: Bool = false) async throws -> String {
         var csvRawValue: String = ""
         let lastField: CSVField = self.fields.last ?? self.fields[0]
@@ -40,6 +41,7 @@ extension CSV {
 
     }
 
+    @available(macOS 10.15.0, *)
     public func saveToDisk(withFileName fileName: String) async throws {
         let directory: URL = FileManager.default.temporaryDirectory.appendingPathComponent("CSVeez")
         if !FileManager.default.fileExists(atPath: directory.path) {

@@ -5,4 +5,3 @@ public struct CSVField: Codable, Equatable, Sendable {
         self.name = name
     }
 }
-
